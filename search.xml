@@ -4,8 +4,40 @@
   
     
     <entry>
+      <title><![CDATA[next主题站内搜索]]></title>
+      <url>/2017/04/04/hexo-%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>就作一个站内搜索，不用插件 algolia 来做搜索功能</p>
+</blockquote>
+<p>先看这俩篇文章：</p>
+<p><a href="https://material.viosey.com/services/#搜索系统" target="_blank" rel="external">https://material.viosey.com/services/#搜索系统</a> </p>
+<p><a href="https://github.com/PaicHyperionDev/hexo-generator-search" target="_blank" rel="external">https://github.com/PaicHyperionDev/hexo-generator-search</a> </p>
+<p>1.安装：</p>
+<pre><code>npm install hexo-generator-search --save
+</code></pre><p>2.站点配置 _config.yml</p>
+<pre><code>search:
+  path: search.xml
+  field: all 
+</code></pre><p>3.打开主题配置文件，搜索search将enable 改为true 就可以了。</p>
+<pre><code>local_search:
+ enable: false
+</code></pre><p>4.效果展示<br>  <img src="/images/article/xiaogo.png" alt="image"></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> search </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[不安的心]]></title>
-      <url>https://yang958554999.github.io/2017/04/03/%E4%B8%8D%E5%AE%89%E7%9A%84%E5%BF%83/</url>
+      <url>/2017/04/03/%E4%B8%8D%E5%AE%89%E7%9A%84%E5%BF%83/</url>
       <content type="html"><![CDATA[<p>这么久以来，我真的不知道如何很好的提升自己的能力呢</p>
 <p>还有一点是我现在比较担忧的</p>
 ]]></content>
@@ -23,7 +55,7 @@
     
     <entry>
       <title><![CDATA[创建一章分类面]]></title>
-      <url>https://yang958554999.github.io/2017/04/03/%E5%88%9B%E5%BB%BA%E4%B8%80%E7%AB%A0%E5%88%86%E7%B1%BB%E9%9D%A2/</url>
+      <url>/2017/04/03/%E5%88%9B%E5%BB%BA%E4%B8%80%E7%AB%A0%E5%88%86%E7%B1%BB%E9%9D%A2/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>这会不会成功呢，还真的有些不好说了呢</p>
 </blockquote>
@@ -46,7 +78,7 @@
     
     <entry>
       <title><![CDATA[Hexo 域名绑定]]></title>
-      <url>https://yang958554999.github.io/2017/04/03/Hexo%20%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A/</url>
+      <url>/2017/04/03/Hexo%20%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A/</url>
       <content type="html"><![CDATA[<p>很是好奇，Hexo 是怎么绑定域名的，自己也从网上弄来不资料，看了看好像也就那么回事。<br>并没有想象中的那么难，于是就动手把它给开出来了。</p>
 <p>多的步骤不多说，直接上阿里云，添加解析，先看图在看文字，这样节省时间。<br><img src="http://on7fu4y8j.bkt.clouddn.com/%E8%A7%A3%E6%9E%90.png" alt="image"></p>
 <p>记录类型选A或CNAME，A记录的记录值就是ip地址，github(官方文档)提供了两个IP地址，192.30.252.153和192.30.252.154，这两个IP地址为github的服务器地址<br>两个都要填上，解析记录设置两个www 和@，线路就默认就行了，CNAME记录值填你的github博客网址。</p>
@@ -75,7 +107,7 @@
     
     <entry>
       <title><![CDATA[我的第一篇文章]]></title>
-      <url>https://yang958554999.github.io/2017/04/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+      <url>/2017/04/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
       <content type="html"><![CDATA[<p>我也不知道这东西怎么有来着，还不熟悉。<br>不管怎么样吧，我今天晚上都要把这个搭建出来。<br>我要做到如下几点：<br>1：new 一个新的页面，并且可以做到连接跳转<br> 如: PHP日记/    当我点击php日记的时候，能显示所有的文章</p>
 <p>2：把站内搜索给做出来</p>
 <p>3：把github中的域名给解析了，在阿里云中解析出来。</p>
@@ -86,7 +118,7 @@
     
     <entry>
       <title><![CDATA[Hello World]]></title>
-      <url>https://yang958554999.github.io/2017/04/03/hello-world/</url>
+      <url>/2017/04/03/hello-world/</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
@@ -106,13 +138,13 @@
     
     <entry>
       <title></title>
-      <url>https://yang958554999.github.io/categories/index.html</url>
+      <url>/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
       <title></title>
-      <url>https://yang958554999.github.io/tags/index.html</url>
+      <url>/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
