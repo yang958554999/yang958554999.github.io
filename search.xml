@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title><![CDATA[next主题站内搜索]]></title>
+      <url>/2017/04/04/hexo-%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>就作一个站内搜索，不用插件 algolia 来做搜索功能</p>
+</blockquote>
+<p>先看这俩篇文章：</p>
+<p><a href="https://material.viosey.com/services/#搜索系统" target="_blank" rel="external">https://material.viosey.com/services/#搜索系统</a> </p>
+<p><a href="https://github.com/PaicHyperionDev/hexo-generator-search" target="_blank" rel="external">https://github.com/PaicHyperionDev/hexo-generator-search</a> </p>
+<p>1.安装：</p>
+<pre><code>npm install hexo-generator-search --save
+</code></pre><p>2.站点配置 _config.yml</p>
+<pre><code>search:
+  path: search.xml
+  field: all 
+</code></pre><p>3.打开主题配置文件，搜索search将enable 改为true 就可以了。</p>
+<pre><code>local_search:
+ enable: false
+</code></pre><p>4.效果展示<br>  <img src="/images/article/xiaogo.png" alt="image"></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> search </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Hexo 域名绑定]]></title>
       <url>/2017/04/03/Hexo%20%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A/</url>
       <content type="html"><![CDATA[<p>很是好奇，Hexo 是怎么绑定域名的，自己也从网上弄来不资料，看了看好像也就那么回事。<br>并没有想象中的那么难，于是就动手把它给开出来了。</p>
@@ -23,7 +55,9 @@
       
         <categories>
             
-            <category> 学习笔记 - Hexo </category>
+            <category> 学习笔记 </category>
+            
+            <category> Hexo </category>
             
         </categories>
         
@@ -35,6 +69,30 @@
             <tag> Github </tag>
             
         </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[hexo  简单操作]]></title>
+      <url>/2017/04/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+      <content type="html"><![CDATA[<p>我也不知道hexo这东西怎么用来着，还不熟悉不管怎么样吧，我今天晚上都要把这个搭建出来。<br>我要做到如下几点：<br>1：new 一个新的页面，并且可以做到连接跳转<br> 如: PHP日记/    当我点击php日记的时候，能显示所有的文章</p>
+<p>2：把站内搜索给做出来</p>
+<p>3：把github中的域名给解析了，在阿里云中解析出来。</p>
+<p>###下面是一些常用的命令</p>
+<p>hexo new “postName”         #新建文章<br>hexo new page “pageName”    #新建页面<br>hexo generate                 #生成静态页面至public目录<br>hexo server                    #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy                 #将.deploy目录部署到GitHub</p>
+<p>常用复合命令：<br>hexo deploy -g<br>hexo server -g</p>
+<p>简写：<br>hexo n == hexo new<br>hexo g == hexo generate<br>hexo s == hexo server<br>hexo d == hexo deploy</p>
+<p>平常就四步<br>1：建一个新的文章<br>2：生成静态页面<br>3：预览效果<br>4：部署至GitHub</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+            <category> Hexo </category>
+            
+        </categories>
+        
         
     </entry>
     
