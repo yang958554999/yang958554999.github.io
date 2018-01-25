@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title><![CDATA[解决mysql 主从复制，Slave_IO_Running  NO的问题]]></title>
+      <url>/2018/01/25/%E8%A7%A3%E5%86%B3mysql-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%EF%BC%8CSlave-IO-Running-NO%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<h1 id="解决mysql-主从复制，Slave-IO-Running-NO-的问题"><a href="#解决mysql-主从复制，Slave-IO-Running-NO-的问题" class="headerlink" title="解决mysql 主从复制，Slave_IO_Running: NO   的问题"></a>解决mysql 主从复制，Slave_IO_Running: NO   的问题</h1><h2 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h2><p>1：前2天做mysql 主从复制，出了 Slave_IO_Running: NO  这个错误，始终都未能配置成功，也不知道是什么原因导致的。</p>
+<p>2：今天学习的时候发现了一个很 “重要且被我忽略的信息 ”：<br> Last_IO_Error: Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs; these UUIDs must be different for replication to work<br>致命错误:由于主和奴隶拥有相等的MySQL服务器uuid，所以从I/O线程停止。这些uuid必须不同于复制工作。</p>
+<h2 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h2><p>主、从 服务器都有相同的MySQL服务器uuid 值，这个值必须是唯一值。<br>mysql 5.6的复制引入了uuid的概念，各个复制结构中的server_uuid得保证不一样，但是查看到直接copy  data文件夹后server_uuid是相同的。</p>
+<p>现在想来导致Slave_IO_Running: NO  的主要情况有两种<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">server-id 重复</div><div class="line">server_uuid 重复</div></pre></td></tr></table></figure></p>
+<p>参考网址：<br>1：<a href="http://blog.csdn.net/cug_jiang126com/article/details/46846031（这可以，能解决问题）" target="_blank" rel="external">http://blog.csdn.net/cug_jiang126com/article/details/46846031（这可以，能解决问题）</a><br>2：<a href="http://blog.csdn.net/shaochenshuo/article/details/49793917（这文章我感觉写的不太准确）" target="_blank" rel="external">http://blog.csdn.net/shaochenshuo/article/details/49793917（这文章我感觉写的不太准确）</a></p>
+<h2 id="问题解决："><a href="#问题解决：" class="headerlink" title="问题解决："></a>问题解决：</h2><p>1.登录mysql;</p>
+<pre><code>mysql -uroot  -proot
+</code></pre><p>2先查看UUID（主、从服务器的uuid是否一致）</p>
+<pre><code>show variables like &apos;%server_uuid%&apos;;
+</code></pre><p>3：修改 auto.cnf 文件(注：【Lnmp mysql】 auto.cnf 文件在  /usr/local/mysql/var)</p>
+<pre><code>cd /usr/local/mysql/var
+</code></pre><p>4：vim auto.cnf 文件</p>
+<pre><code>把uuid 的值修改一下，确保与主服务器的uuid 不一样。
+</code></pre><p>5：重启 mysql.</p>
+<pre><code>lnmp mysql reload;
+</code></pre><p>6：进入（登录） mysql  查看</p>
+<pre><code>show slave status\G;
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> 未解决的问题 </category>
+            
+            <category> mysql </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[mysql主从复制，未解决的问题]]></title>
       <url>/2018/01/23/mysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%EF%BC%8C%E6%9C%AA%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<h1 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h1><p>实现mysql 主从复制</p>
@@ -217,8 +250,7 @@
       <content type="html"><![CDATA[<p>我也不知道hexo这东西怎么用来着，还不熟悉不管怎么样吧，我今天晚上都要把这个搭建出来。<br>我要做到如下几点：<br>1：new 一个新的页面，并且可以做到连接跳转<br> 如: PHP日记/    当我点击php日记的时候，能显示所有的文章</p>
 <p>2：把站内搜索给做出来</p>
 <p>3：把github中的域名给解析了，在阿里云中解析出来。</p>
-<p>###下面是一些常用的命令</p>
-<p>hexo new “postName”         #新建文章<br>hexo new page “pageName”    #新建页面<br>hexo generate                 #生成静态页面至public目录<br>hexo server                    #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy                 #将.deploy目录部署到GitHub</p>
+<h3 id="下面是一些常用的命令"><a href="#下面是一些常用的命令" class="headerlink" title="下面是一些常用的命令"></a>下面是一些常用的命令</h3><p>hexo new “postName”         #新建文章<br>hexo new page “pageName”    #新建页面<br>hexo generate                 #生成静态页面至public目录<br>hexo server                    #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy                 #将.deploy目录部署到GitHub</p>
 <p>常用复合命令：<br>hexo deploy -g<br>hexo server -g</p>
 <p>简写：<br>hexo n == hexo new<br>hexo g == hexo generate<br>hexo s == hexo server<br>hexo d == hexo deploy</p>
 <p>平常就四步<br>1：建一个新的文章<br>2：生成静态页面<br>3：预览效果<br>4：部署至GitHub</p>
@@ -248,13 +280,13 @@
     
     <entry>
       <title></title>
-      <url>/categories/index.html</url>
+      <url>/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
       <title></title>
-      <url>/tags/index.html</url>
+      <url>/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
