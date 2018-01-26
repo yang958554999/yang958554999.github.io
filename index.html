@@ -575,8 +575,9 @@ service iptables stop
       
         
           
-          解决mysql 主从复制，Slave_IO_Running: NO   的问题问题描述：1：前2天做mysql 主从复制，出了 Slave_IO_Running: NO  这个错误，始终都未能配置成功，也不知道是什么原因导致的。
-2：今天学习的时候发现了一个很 “重要且被我忽略的信息 ”： Last_IO_Error: Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs; these UUIDs must be different for replication to work致命错误:由于主和奴隶拥有相等的MySQL服务器uuid，所以从I/O线程停止。
+          问题描述：1：前2天做mysql 主从复制，出了 Slave_IO_Running: NO  这个错误，始终都未能配置成功，也不知道是什么原因导致的。
+2：今天学习的时候发现了一个很 “重要且被我忽略的信息 ”： Last_IO_Error: Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs; these UUIDs must be different for replication to work致命错误:由于主和奴隶拥有相等的MySQL服务器uuid，所以从I/O线程停止。这些uuid必须不同于复制工作。
+问题分析：主、从 服务器都有相同的MySQL
           ...
           <!--noindex-->
           <div class="post-button text-center">
