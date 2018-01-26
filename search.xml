@@ -53,9 +53,9 @@ master_log_pos=154;
 </code></pre><p>4）查看监听状态</p>
 <pre><code>show slave status\G;
 </code></pre><p>5）配置成功如下图：<br><img src="http://on7fu4y8j.bkt.clouddn.com/msql-mt03.png" alt="image"></p>
-<div class="note danger"><h3 id="如有遇到：Slave-IO-Running-NO-的问题："><a href="#如有遇到：Slave-IO-Running-NO-的问题：" class="headerlink" title="如有遇到：Slave_IO_Running: NO   的问题："></a>如有遇到：Slave_IO_Running: NO   的问题：</h3><h3 id="请访问-解决mysql-主从复制，Slave-IO-Running-NO的问题"><a href="#请访问-解决mysql-主从复制，Slave-IO-Running-NO的问题" class="headerlink" title="请访问: 解决mysql 主从复制，Slave_IO_Running  NO的问题"></a>请访问: <a href="/archives/">解决mysql 主从复制，Slave_IO_Running  NO的问题</a></h3></div>
+<div class="note danger"><h3 id="如有遇到：Slave-IO-Running-NO-的问题："><a href="#如有遇到：Slave-IO-Running-NO-的问题：" class="headerlink" title="如有遇到：Slave_IO_Running: NO   的问题："></a>如有遇到：Slave_IO_Running: NO   的问题：</h3><h3 id="请访问-解决mysql-主从复制，Slave-IO-Running-NO的问题"><a href="#请访问-解决mysql-主从复制，Slave-IO-Running-NO的问题" class="headerlink" title="请访问: 解决mysql 主从复制，Slave_IO_Running  NO的问题"></a>请访问: <a href="/categories/学习笔记/mysql/">解决mysql 主从复制，Slave_IO_Running  NO的问题</a></h3></div>
 <hr>
-<p>参考网址：<br>1：<a href="https://www.cnblogs.com/zhoujie/p/mysql1.html" target="_blank" rel="external">https://www.cnblogs.com/zhoujie/p/mysql1.html</a><br>2：<a href="http://www.cnblogs.com/DavidYan/articles/2531181.html" target="_blank" rel="external">http://www.cnblogs.com/DavidYan/articles/2531181.html</a><br>3：<a href="http://www.yii-china.com/post/detail/283.html" target="_blank" rel="external">http://www.yii-china.com/post/detail/283.html</a><br>4：<a href="http://blog.csdn.net/u010111874/article/details/52149833（比较正规，可供参考）" target="_blank" rel="external">http://blog.csdn.net/u010111874/article/details/52149833（比较正规，可供参考）</a></p>
+<p>参考网址：<br>1：<a href="https://www.cnblogs.com/zhoujie/p/mysql1.html" target="_blank" rel="external">https://www.cnblogs.com/zhoujie/p/mysql1.html</a><br>2：<a href="http://www.cnblogs.com/DavidYan/articles/2531181.html" target="_blank" rel="external">http://www.cnblogs.com/DavidYan/articles/2531181.html</a><br>3：<a href="http://www.yii-china.com/post/detail/283.html" target="_blank" rel="external">http://www.yii-china.com/post/detail/283.html</a><br>4：<a href="http://blog.csdn.net/u010111874/article/details/52149833" target="_blank" rel="external">http://blog.csdn.net/u010111874/article/details/52149833</a>   （比较正规，可供参考）</p>
 ]]></content>
       
         <categories>
@@ -82,7 +82,7 @@ master_log_pos=154;
 <p>2：今天学习的时候发现了一个很 “重要且被我忽略的信息 ”：<br> Last_IO_Error: Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs; these UUIDs must be different for replication to work<br>致命错误:由于主和奴隶拥有相等的MySQL服务器uuid，所以从I/O线程停止。这些uuid必须不同于复制工作。</p>
 <h2 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h2><p>主、从 服务器都有相同的MySQL服务器uuid 值，这个值必须是唯一值。<br>mysql 5.6的复制引入了uuid的概念，各个复制结构中的server_uuid得保证不一样，但是查看到直接copy  data文件夹后server_uuid是相同的。</p>
 <p>现在想来导致Slave_IO_Running: NO  的主要情况有两种<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">server-id 重复</div><div class="line">server_uuid 重复</div></pre></td></tr></table></figure></p>
-<p>参考网址：<br>1：<a href="http://blog.csdn.net/cug_jiang126com/article/details/46846031（这可以，能解决问题）" target="_blank" rel="external">http://blog.csdn.net/cug_jiang126com/article/details/46846031（这可以，能解决问题）</a><br>2：<a href="http://blog.csdn.net/shaochenshuo/article/details/49793917（这文章我感觉写的不太准确）" target="_blank" rel="external">http://blog.csdn.net/shaochenshuo/article/details/49793917（这文章我感觉写的不太准确）</a></p>
+<p>参考网址：<br>1：<a href="http://blog.csdn.net/cug_jiang126com/article/details/46846031" target="_blank" rel="external">http://blog.csdn.net/cug_jiang126com/article/details/46846031</a>  （这可以，能解决问题）<br>2：<a href="http://blog.csdn.net/shaochenshuo/article/details/49793917" target="_blank" rel="external">http://blog.csdn.net/shaochenshuo/article/details/49793917</a>   （这文章我感觉写的不太准确）</p>
 <h2 id="问题解决："><a href="#问题解决：" class="headerlink" title="问题解决："></a>问题解决：</h2><p>1.登录mysql;</p>
 <pre><code>mysql -uroot  -proot
 </code></pre><p>2先查看UUID（主、从服务器的uuid是否一致）</p>
@@ -360,13 +360,13 @@ master_log_pos=154;
     
     <entry>
       <title></title>
-      <url>/tags/index.html</url>
+      <url>/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
       <title></title>
-      <url>/categories/index.html</url>
+      <url>/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
