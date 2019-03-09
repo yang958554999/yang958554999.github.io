@@ -105,10 +105,10 @@
 192.168.114.100（主）
 192.168.114.101（从）
 2：关闭防火墙（防止意外情况）">
-<meta property="og:image" content="http://on7fu4y8j.bkt.clouddn.com/msql-mt01.png">
-<meta property="og:image" content="http://on7fu4y8j.bkt.clouddn.com/msql-mt02.png">
-<meta property="og:image" content="http://on7fu4y8j.bkt.clouddn.com/msql-mt03.png">
-<meta property="og:updated_time" content="2018-01-26T05:27:12.145Z">
+<meta property="og:image" content="http://imgcdn.95dcw.com/msql-mt01.png">
+<meta property="og:image" content="http://imgcdn.95dcw.com/msql-mt02.png">
+<meta property="og:image" content="http://imgcdn.95dcw.com/msql-mt03.png">
+<meta property="og:updated_time" content="2019-03-09T11:21:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql 主从复制 配置">
 <meta name="twitter:description" content="前期说明与准备：说明：   我用的是lnmp 集成环境，怎么搭建你到这个网站查看(http://www.lnmp.org)安装的时候注意mysql选择版本是5.7的，安装完成了以后记得使用ip在自己本地系统浏览器上看能不能正常运行
@@ -118,7 +118,7 @@
 192.168.114.100（主）
 192.168.114.101（从）
 2：关闭防火墙（防止意外情况）">
-<meta name="twitter:image" content="http://on7fu4y8j.bkt.clouddn.com/msql-mt01.png">
+<meta name="twitter:image" content="http://imgcdn.95dcw.com/msql-mt01.png">
 
 
 
@@ -437,7 +437,7 @@
 <pre><code>mysql -uroot -p  //输入密码登录
 </code></pre><p>4：查看当前主的状态</p>
 <p>4.1）show master status;</p>
-<p><img src="http://on7fu4y8j.bkt.clouddn.com/msql-mt01.png" alt="image"></p>
+<p><img src="http://imgcdn.95dcw.com/msql-mt01.png" alt="image"></p>
 <p>4.2）（查看mysql bin_log 二进文件，看看文件是否开启）</p>
 <pre><code>ll /usr/local/mysql/var;
 </code></pre><p>4.3） 重置从1开始写（当写满了之后，就会开另一个文件）</p>
@@ -451,7 +451,7 @@
 <h2 id="二、从数据库配置（192-168-114-101）"><a href="#二、从数据库配置（192-168-114-101）" class="headerlink" title="二、从数据库配置（192.168.114.101）"></a>二、从数据库配置（192.168.114.101）</h2><p>1：连接从库，修改mysql配置文件 /etc/my.cnf,这部分一定要配置在[mysqld]后面</p>
 <div class="note primary"><p>server-id   = 101      //默认的为1，这应是唯一值，不能重复，一般都采用ip的后几位数<br>relay_log  = mysql-relay-bin</p>
 </div>
-<p><img src="http://on7fu4y8j.bkt.clouddn.com/msql-mt02.png" alt="image"></p>
+<p><img src="http://imgcdn.95dcw.com/msql-mt02.png" alt="image"></p>
 <p>2：进入mysql（设置：从机监听主机）<br>1） 先关闭slave</p>
 <pre><code>stop slave;
 </code></pre><p>2）做同步设置（监听配置）</p>
@@ -466,7 +466,7 @@ master_log_pos=154;
 <pre><code>start slave;
 </code></pre><p>4）查看监听状态</p>
 <pre><code>show slave status\G;
-</code></pre><p>5）配置成功如下图：<br><img src="http://on7fu4y8j.bkt.clouddn.com/msql-mt03.png" alt="image"></p>
+</code></pre><p>5）配置成功如下图：<br><img src="http://imgcdn.95dcw.com/msql-mt03.png" alt="image"></p>
 <div class="note danger"><h2 id="如有遇到：Slave-IO-Running-NO-的问题："><a href="#如有遇到：Slave-IO-Running-NO-的问题：" class="headerlink" title="如有遇到：Slave_IO_Running: NO   的问题："></a>如有遇到：Slave_IO_Running: NO   的问题：</h2><h3 id="请访问-解决mysql-主从复制，Slave-IO-Running-NO的问题"><a href="#请访问-解决mysql-主从复制，Slave-IO-Running-NO的问题" class="headerlink" title="请访问: 解决mysql 主从复制，Slave_IO_Running  NO的问题"></a>请访问: <a href="/categories/学习笔记/mysql/">解决mysql 主从复制，Slave_IO_Running  NO的问题</a></h3></div>
 <hr>
 <p>参考网址：<br>1：<a href="https://www.cnblogs.com/zhoujie/p/mysql1.html" target="_blank" rel="external">https://www.cnblogs.com/zhoujie/p/mysql1.html</a><br>2：<a href="http://www.cnblogs.com/DavidYan/articles/2531181.html" target="_blank" rel="external">http://www.cnblogs.com/DavidYan/articles/2531181.html</a><br>3：<a href="http://www.yii-china.com/post/detail/283.html" target="_blank" rel="external">http://www.yii-china.com/post/detail/283.html</a><br>4：<a href="http://blog.csdn.net/u010111874/article/details/52149833" target="_blank" rel="external">http://blog.csdn.net/u010111874/article/details/52149833</a>   （比较正规，可供参考）</p>
@@ -693,7 +693,7 @@ master_log_pos=154;
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
