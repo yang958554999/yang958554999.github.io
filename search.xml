@@ -4,6 +4,36 @@
   
     
     <entry>
+      <title><![CDATA[七牛云-如何配置域名的 CNAME]]></title>
+      <url>/2019/03/09/%E4%B8%83%E7%89%9B%E4%BA%91-%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E7%9A%84-CNAME/</url>
+      <content type="html"><![CDATA[<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>配置七牛云域名</p>
+<h3 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h3><p>1：<a href="https://developer.qiniu.com/fusion/kb/1322/how-to-configure-cname-domain-name" target="_blank" rel="external">https://developer.qiniu.com/fusion/kb/1322/how-to-configure-cname-domain-name</a><br>2：<a href="http://www.bloguan.com/?id=205" target="_blank" rel="external">http://www.bloguan.com/?id=205</a></p>
+<h3 id="第一步：创建域名"><a href="#第一步：创建域名" class="headerlink" title="第一步：创建域名"></a>第一步：创建域名</h3><p><img src="http://imgcdn.95dcw.com/qiniu-dns1.png" alt="image"></p>
+<h3 id="第二步：配置-DNS解析"><a href="#第二步：配置-DNS解析" class="headerlink" title="第二步：配置 DNS解析"></a>第二步：配置 DNS解析</h3><h4 id="1：在七牛云“域名管理”中找到刚创建好的域名，复制它的-CNAME"><a href="#1：在七牛云“域名管理”中找到刚创建好的域名，复制它的-CNAME" class="headerlink" title="1：在七牛云“域名管理”中找到刚创建好的域名，复制它的 CNAME"></a>1：在七牛云“域名管理”中找到刚创建好的域名，复制它的 CNAME</h4><p><img src="http://imgcdn.95dcw.com/qiniu-dns2.png" alt="image"></p>
+<h4 id="2-登录阿里云，找到网站的域名解析后台，找到DNS解析设置，添加CNAME记录。"><a href="#2-登录阿里云，找到网站的域名解析后台，找到DNS解析设置，添加CNAME记录。" class="headerlink" title="2:登录阿里云，找到网站的域名解析后台，找到DNS解析设置，添加CNAME记录。"></a>2:登录阿里云，找到网站的域名解析后台，找到DNS解析设置，添加CNAME记录。</h4><p><img src="http://imgcdn.95dcw.com/qiniu-dns3.png" alt="image"></p>
+<h4 id="3：返回七牛云平台找到”-对象存储“，查看是否融合成功（一般要得一会）"><a href="#3：返回七牛云平台找到”-对象存储“，查看是否融合成功（一般要得一会）" class="headerlink" title="3：返回七牛云平台找到” 对象存储“，查看是否融合成功（一般要得一会）"></a>3：返回七牛云平台找到” 对象存储“，查看是否融合成功（一般要得一会）</h4><p><img src="http://imgcdn.95dcw.com/qiniu-dns4.png" alt="image"></p>
+<h4 id="4：点击-内容管理-gt-上传文件，来验证是否配置成功。"><a href="#4：点击-内容管理-gt-上传文件，来验证是否配置成功。" class="headerlink" title="4：点击 内容管理-&gt;上传文件，来验证是否配置成功。"></a>4：点击 内容管理-&gt;上传文件，来验证是否配置成功。</h4><p><img src="http://imgcdn.95dcw.com/qiniu-dns5.png" alt="image"><br><img src="http://imgcdn.95dcw.com/qiniu-dns6.png" alt="image" title="图片上传成功1"><br><img src="http://imgcdn.95dcw.com/qiniu-dns7.png" alt="image" title="图片上传成功2"></p>
+<h4 id="5：效果展示"><a href="#5：效果展示" class="headerlink" title="5：效果展示"></a>5：效果展示</h4><p><img src="http://imgcdn.95dcw.com/qiniu-dns8.png" alt="image"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+            <category> Hexo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Mysql 主从复制 配置]]></title>
       <url>/2018/01/26/Mysql-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6-%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h2 id="前期说明与准备："><a href="#前期说明与准备：" class="headerlink" title="前期说明与准备："></a>前期说明与准备：</h2><h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><div class="note primary"><p>   我用的是lnmp 集成环境，怎么搭建你到这个网站查看(<a href="http://www.lnmp.org" target="_blank" rel="external">http://www.lnmp.org</a>)<br>安装的时候注意mysql选择版本是5.7的，安装完成了以后记得使用ip在自己本地系统浏览器上看能不能正常运行</p>
@@ -72,6 +102,23 @@ master_log_pos=154;
             <tag> mysql 主从复制 </tag>
             
         </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>/2018/01/25/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+      
         
     </entry>
     
@@ -226,23 +273,6 @@ master_log_pos=154;
     </entry>
     
     <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>/2018/01/21/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[next主题站内搜索]]></title>
       <url>/2017/04/04/hexo-%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -311,7 +341,7 @@ master_log_pos=154;
         
         <tags>
             
-            <tag> Hexo </tag>
+            <tag> hexo </tag>
             
             <tag> Github </tag>
             
