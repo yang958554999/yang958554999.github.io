@@ -88,24 +88,24 @@
 
 
 <meta name="description" content="作用： （1）判断一个对象是否是某个类的实例 （2）判断一个对象是否实现了某个接口。
-第一种用法：
-12345&amp;lt;?php$obj = new A();if ($obj instanceof A) &amp;#123;  echo &apos;A&apos;;&amp;#125;
-第二种用法：12345678910111213141516171819&amp;lt;?phpinterface ExampleInterface&amp;#123">
+
+第一种用法12345&amp;lt;?php$obj = new A();if ($obj instanceof A) &amp;#123;  echo &apos;A&apos;;&amp;#125;
+第二种用法12345678910111213141516171819&amp;lt;?phpinterface ExampleInterface&amp;#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php 中instanceof的使用">
 <meta property="og:url" content="/2019/03/19/php-中instanceof的使用/index.html">
 <meta property="og:site_name" content="简单、">
 <meta property="og:description" content="作用： （1）判断一个对象是否是某个类的实例 （2）判断一个对象是否实现了某个接口。
-第一种用法：
-12345&amp;lt;?php$obj = new A();if ($obj instanceof A) &amp;#123;  echo &apos;A&apos;;&amp;#125;
-第二种用法：12345678910111213141516171819&amp;lt;?phpinterface ExampleInterface&amp;#123">
-<meta property="og:updated_time" content="2019-03-19T12:27:27.000Z">
+
+第一种用法12345&amp;lt;?php$obj = new A();if ($obj instanceof A) &amp;#123;  echo &apos;A&apos;;&amp;#125;
+第二种用法12345678910111213141516171819&amp;lt;?phpinterface ExampleInterface&amp;#123;">
+<meta property="og:updated_time" content="2019-03-19T12:48:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php 中instanceof的使用">
 <meta name="twitter:description" content="作用： （1）判断一个对象是否是某个类的实例 （2）判断一个对象是否实现了某个接口。
-第一种用法：
-12345&amp;lt;?php$obj = new A();if ($obj instanceof A) &amp;#123;  echo &apos;A&apos;;&amp;#125;
-第二种用法：12345678910111213141516171819&amp;lt;?phpinterface ExampleInterface&amp;#123">
+
+第一种用法12345&amp;lt;?php$obj = new A();if ($obj instanceof A) &amp;#123;  echo &apos;A&apos;;&amp;#125;
+第二种用法12345678910111213141516171819&amp;lt;?phpinterface ExampleInterface&amp;#123;">
 
 
 
@@ -409,9 +409,9 @@
       
         <blockquote>
 <p>作用： （1）判断一个对象是否是某个类的实例 （2）判断一个对象是否实现了某个接口。</p>
-<h4 id="第一种用法："><a href="#第一种用法：" class="headerlink" title="第一种用法："></a>第一种用法：</h4></blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$obj = <span class="keyword">new</span> A();</div><div class="line"><span class="keyword">if</span> ($obj <span class="keyword">instanceof</span> A) &#123;</div><div class="line">  <span class="keyword">echo</span> <span class="string">'A'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="第二种用法："><a href="#第二种用法：" class="headerlink" title="第二种用法："></a>第二种用法：</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ExampleInterface</span></span></div><div class="line">&#123;</div><div class="line">   <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">interfaceMethod</span><span class="params">()</span></span>;</div><div class="line"> &#125;</div><div class="line"> <span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span> <span class="keyword">implements</span> <span class="title">ExampleInterface</span></span></div><div class="line">&#123;</div><div class="line">   <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">interfaceMethod</span><span class="params">()</span></span></div><div class="line">   &#123;</div><div class="line">     <span class="keyword">return</span> <span class="string">'Hello World!'</span>;</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">$exampleInstance = <span class="keyword">new</span> ExampleClass();</div><div class="line"> <span class="keyword">if</span>($exampleInstance <span class="keyword">instanceof</span> ExampleInterface)&#123;</div><div class="line">   <span class="keyword">echo</span> <span class="string">'Yes, it is'</span>;</div><div class="line"> &#125;<span class="keyword">else</span>&#123;</div><div class="line">   <span class="keyword">echo</span> <span class="string">'No, it is not'</span>;</div><div class="line">&#125; </div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="第一种用法"><a href="#第一种用法" class="headerlink" title="第一种用法"></a>第一种用法</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$obj = <span class="keyword">new</span> A();</div><div class="line"><span class="keyword">if</span> ($obj <span class="keyword">instanceof</span> A) &#123;</div><div class="line">  <span class="keyword">echo</span> <span class="string">'A'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="第二种用法"><a href="#第二种用法" class="headerlink" title="第二种用法"></a>第二种用法</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ExampleInterface</span></span></div><div class="line">&#123;</div><div class="line">   <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">interfaceMethod</span><span class="params">()</span></span>;</div><div class="line"> &#125;</div><div class="line"> <span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span> <span class="keyword">implements</span> <span class="title">ExampleInterface</span></span></div><div class="line">&#123;</div><div class="line">   <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">interfaceMethod</span><span class="params">()</span></span></div><div class="line">   &#123;</div><div class="line">     <span class="keyword">return</span> <span class="string">'Hello World!'</span>;</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">$exampleInstance = <span class="keyword">new</span> ExampleClass();</div><div class="line"> <span class="keyword">if</span>($exampleInstance <span class="keyword">instanceof</span> ExampleInterface)&#123;</div><div class="line">   <span class="keyword">echo</span> <span class="string">'Yes, it is'</span>;</div><div class="line"> &#125;<span class="keyword">else</span>&#123;</div><div class="line">   <span class="keyword">echo</span> <span class="string">'No, it is not'</span>;</div><div class="line">&#125; </div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>输出结果：Yes, it is</p>
 </blockquote>
@@ -615,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种用法："><span class="nav-number">1.</span> <span class="nav-text">第一种用法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种用法："><span class="nav-number">2.</span> <span class="nav-text">第二种用法：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种用法"><span class="nav-number">1.</span> <span class="nav-text">第一种用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种用法"><span class="nav-number">2.</span> <span class="nav-text">第二种用法</span></a></li></ol></div>
             
 
           </div>
