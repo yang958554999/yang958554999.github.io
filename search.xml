@@ -4,6 +4,36 @@
   
     
     <entry>
+      <title><![CDATA[XDebug安装]]></title>
+      <url>/2019/03/24/XDebug%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<hr>
+<p>参考网址：<br>1：<a href="https://www.cnblogs.com/zjfblog/p/7055100.html" target="_blank" rel="external">https://www.cnblogs.com/zjfblog/p/7055100.html</a><br>2：<a href="https://baijiahao.baidu.com/s?id=1607680791440431678&amp;wfr=spider&amp;for=pc" target="_blank" rel="external">https://baijiahao.baidu.com/s?id=1607680791440431678&amp;wfr=spider&amp;for=pc</a><br>3：<a href="https://blog.csdn.net/qq_35770969/article/details/80757959" target="_blank" rel="external">https://blog.csdn.net/qq_35770969/article/details/80757959</a><br>4：<a href="https://xdebug.org/wizard.php" target="_blank" rel="external">https://xdebug.org/wizard.php</a> (php版本检测）</p>
+<hr>
+<h4 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h4><p>先看完参考网址资料，具体安装可以按第四个参考网址来操作都有详细的步骤，这里不做过多的描述和讲解。</p>
+<h4 id="二、我踩过的坑"><a href="#二、我踩过的坑" class="headerlink" title="二、我踩过的坑"></a>二、我踩过的坑</h4><h5 id="1：注意版本号，32位还是64位（在phpinfo中有-如下图"><a href="#1：注意版本号，32位还是64位（在phpinfo中有-如下图" class="headerlink" title="1：注意版本号，32位还是64位（在phpinfo中有)如下图"></a>1：注意版本号，32位还是64位（在phpinfo中有)如下图</h5><p><img src="http://imgcdn.95dcw.com/php_xdebug-1.jpg" alt="image"></p>
+<h5 id="2：确保自己开启了-xdebug-扩展（如同-php-gd2、php-curl、php-pdo-这种"><a href="#2：确保自己开启了-xdebug-扩展（如同-php-gd2、php-curl、php-pdo-这种" class="headerlink" title="2：确保自己开启了 xdebug 扩展（如同 php_gd2、php_curl、php_pdo 这种)"></a>2：确保自己开启了 xdebug 扩展（如同 php_gd2、php_curl、php_pdo 这种)</h5><h5 id="3：下载好的php-xdebug文件名，在配置php-ini中一定要一至（我是单独下载的导致文件名有些不同）"><a href="#3：下载好的php-xdebug文件名，在配置php-ini中一定要一至（我是单独下载的导致文件名有些不同）" class="headerlink" title="3：下载好的php_xdebug文件名，在配置php.ini中一定要一至（我是单独下载的导致文件名有些不同）"></a>3：下载好的php_xdebug文件名，在配置php.ini中一定要一至（我是单独下载的导致文件名有些不同）</h5><p><img src="http://imgcdn.95dcw.com/php_xdebug-2.jpg" alt="image"></p>
+<h4 id="三、配置-php-ini"><a href="#三、配置-php-ini" class="headerlink" title="三、配置 php.ini"></a>三、配置 php.ini</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">[XDebug]</div><div class="line">xdebug.profiler_output_dir=&quot;D:\phpStudy\PHPTutorial\tmp\xdebug&quot;</div><div class="line">xdebug.trace_output_dir=&quot;D:\phpStudy\PHPTutorial\tmp\xdebug&quot;</div><div class="line">zend_extension=&quot;D:\phpStudy\PHPTutorial\php\php-7.0.12-nts\ext\php_xdebug-2.7.0-7.0-vc14-nts.dll&quot;</div><div class="line"></div><div class="line">;是否开启远程调试</div><div class="line">xdebug.remote_enable=1</div><div class="line">xdebug.remote_autostart = 1</div><div class="line"></div><div class="line">;调试插件dbgp</div><div class="line">xdebug.remote_handler=dbgp</div><div class="line">xdebug.remote_mode=req</div><div class="line">;允许调试的客户端IP</div><div class="line">xdebug.remote_host=localhost</div><div class="line">;远程调试的端口（默认9000）</div><div class="line">xdebug.remote_port=9000</div><div class="line">xdebug.idekey=&quot;PHPSTORM&quot;</div></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+            <category> php </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> php </tag>
+            
+            <tag> xdebug </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[php 中instanceof的使用]]></title>
       <url>/2019/03/19/php-%E4%B8%ADinstanceof%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<blockquote>
