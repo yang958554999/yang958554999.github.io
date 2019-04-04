@@ -4,6 +4,78 @@
   
     
     <entry>
+      <title><![CDATA[vsCode - PHP IntelliSense插件函数跳转]]></title>
+      <url>/2019/03/25/vsCode-PHP-IntelliSense%E6%8F%92%E4%BB%B6%E5%87%BD%E6%95%B0%E8%B7%B3%E8%BD%AC/</url>
+      <content type="html"><![CDATA[<h3 id="一、安装-PHP-IntelliSense插件"><a href="#一、安装-PHP-IntelliSense插件" class="headerlink" title="一、安装  PHP IntelliSense插件"></a>一、安装  PHP IntelliSense插件</h3><p> 打开vsode 编辑器，ctrl+shift+x 打开扩展商店，搜索 PHP IntelliSense 安装插件<br> <img src="http://imgcdn.95dcw.com/PHP%20IntelliSense-1.png" alt="image"></p>
+<h3 id="二、配置-PHP-IntelliSense插件，php-executablePath-路径（按自身情况填写）"><a href="#二、配置-PHP-IntelliSense插件，php-executablePath-路径（按自身情况填写）" class="headerlink" title="二、配置 PHP IntelliSense插件，php.executablePath 路径（按自身情况填写）"></a>二、配置 PHP IntelliSense插件，php.executablePath 路径（按自身情况填写）</h3><p> <img src="http://imgcdn.95dcw.com/PHP%20IntelliSense-2.png" alt="image"></p>
+<blockquote>
+<p>OK，配置好了后重新vsCode 编辑器，试试效果吧，如果可以正常跳转那么恭喜你，如果还是无法跳转请看最后一步。</p>
+</blockquote>
+<h3 id="三、最后一步"><a href="#三、最后一步" class="headerlink" title="三、最后一步"></a>三、最后一步</h3><blockquote>
+<p>我踩过的坑：明明自己都配置好了 php.executablePath的路径也没错，可为什么还是无法实现函数跳转？</p>
+</blockquote>
+<font color="#FF0000" face="黑体">那么你还差最后一步，“文件 -&gt; 将工作区另存为”</font>
+
+<p><img src="http://imgcdn.95dcw.com/PHP%20IntelliSense-3.png" alt="image" title="无标题工作区"></p>
+<p><img src="http://imgcdn.95dcw.com/PHP%20IntelliSense-4.png" alt="image" title="项目工作区"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+            <category> php </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> php </tag>
+            
+            <tag> vsCode </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[PHP+XDebug断点调试（vsCode编辑器）]]></title>
+      <url>/2019/03/24/PHP-XDebug%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%EF%BC%88vsCode%E7%BC%96%E8%BE%91%E5%99%A8%EF%BC%89/</url>
+      <content type="html"><![CDATA[<hr>
+<p>参考网址：<br>1：<a href="https://www.jb51.net/softjc/606841.html" target="_blank" rel="external">https://www.jb51.net/softjc/606841.html</a><br>2：<a href="https://www.cnblogs.com/zjfblog/p/7055100.html" target="_blank" rel="external">https://www.cnblogs.com/zjfblog/p/7055100.html</a><br>3：<a href="https://www.cnblogs.com/CLR010/p/5276077.html" target="_blank" rel="external">https://www.cnblogs.com/CLR010/p/5276077.html</a></p>
+<hr>
+<h3 id="一、安装-vs-Code（我安装的是最新版1-32-3）"><a href="#一、安装-vs-Code（我安装的是最新版1-32-3）" class="headerlink" title="一、安装 vs Code（我安装的是最新版1.32.3）"></a>一、安装 vs Code（我安装的是最新版1.32.3）</h3><p>在商店搜索如下三个插件并安装好：<br>PHP Debug 、PHP Exteension Pack 、PHP IntelliSense<br><img src="http://imgcdn.95dcw.com/php+xdebug-1.png" alt="image"></p>
+<h3 id="二、在vs-Code-中配置PHP的路径"><a href="#二、在vs-Code-中配置PHP的路径" class="headerlink" title="二、在vs Code 中配置PHP的路径"></a>二、在vs Code 中配置PHP的路径</h3><blockquote>
+<p>说明：我的是1.32.3版本会有点不一样，如不一样请自行百度，如下是我的操作步骤。</p>
+</blockquote>
+<h4 id="1：文件-—-gt-首选项-—-gt-设置"><a href="#1：文件-—-gt-首选项-—-gt-设置" class="headerlink" title="1：文件 —&gt; 首选项 —&gt; 设置"></a>1：文件 —&gt; 首选项 —&gt; 设置</h4><h4 id="2：搜索-settings-json-可对其进行配置-如下图"><a href="#2：搜索-settings-json-可对其进行配置-如下图" class="headerlink" title="2：搜索 settings.json 可对其进行配置(如下图)"></a>2：搜索 settings.json 可对其进行配置(如下图)</h4><p><img src="http://imgcdn.95dcw.com/php+xdebug-2.png" alt="image"></p>
+<h4 id="3：在seetings-json中配置php-executablePath路径-请根据自己情况填写"><a href="#3：在seetings-json中配置php-executablePath路径-请根据自己情况填写" class="headerlink" title="3：在seetings.json中配置php.executablePath路径(请根据自己情况填写)"></a>3：在seetings.json中配置php.executablePath路径(请根据自己情况填写)</h4><p><img src="http://imgcdn.95dcw.com/php+xdebug-3.png" alt="image"></p>
+<h3 id="三、开始调试："><a href="#三、开始调试：" class="headerlink" title="三、开始调试："></a>三、开始调试：</h3><p>1：先 F9 打好断点<br>2：F5 开始调试<br>3：打浏览器输入要调试文件的url （如下是我的效果图）<br><img src="http://imgcdn.95dcw.com/php+xdebug-4.png" alt="image"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+            <category> php </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> php </tag>
+            
+            <tag> xdebug </tag>
+            
+            <tag> vsCode </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[XDebug安装]]></title>
       <url>/2019/03/24/XDebug%E5%AE%89%E8%A3%85/</url>
       <content type="html"><![CDATA[<hr>
