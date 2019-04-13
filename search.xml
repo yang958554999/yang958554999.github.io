@@ -4,6 +4,161 @@
   
     
     <entry>
+      <title><![CDATA[运算符 && 的面试及分析]]></title>
+      <url>/2019/04/13/%E8%BF%90%E7%AE%97%E7%AC%A6-%E7%9A%84%E9%9D%A2%E8%AF%95%E5%8F%8A%E5%88%86%E6%9E%90/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>知识点：&amp;&amp;<br>1：当左边为真时，右边则执行<br>2：当左为假时，右边则不执行<br>3：当2个条件都为真时，才会进入if体内</p>
+</blockquote>
+<h4 id="一、加括号"><a href="#一、加括号" class="headerlink" title="一、加括号"></a>一、加括号</h4><h5 id="1、两个条件都为真时"><a href="#1、两个条件都为真时" class="headerlink" title="1、两个条件都为真时"></a>1、两个条件都为真时</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$a = 3;</div><div class="line">$b = 4;</div><div class="line"></div><div class="line">if(($a=5) &amp;&amp; ($b=6))&#123;</div><div class="line">    $a+=1;</div><div class="line">    $b+=1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">echo $a;</div><div class="line">echo &apos;&lt;br&gt;&apos;;</div><div class="line">echo $b;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>结果：6  7</p>
+</blockquote>
+<p>解析：<br>1：( )的运算符大于 &amp;&amp; ，优先运算( )<br>2：if判断<br>3：($a=5) 为 true, $a的值被重新赋值为 5<br>4：($b=6) 为 true, $b的值被重新赋值为 6<br>5：进入 if 体内（注意：当2个条件为真时才会进入if体内)</p>
+<h5 id="2、左边为真，右边为假"><a href="#2、左边为真，右边为假" class="headerlink" title="2、左边为真，右边为假"></a>2、左边为真，右边为假</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$a = 3;</div><div class="line">$b = 4;</div><div class="line"></div><div class="line">if(($a=5) &amp;&amp; ($b=0))&#123;</div><div class="line">    $a+=1;</div><div class="line">    $b+=1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">echo $a;</div><div class="line">echo &apos;&lt;br&gt;&apos;;</div><div class="line">echo $b;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>结果：5  0 </p>
+</blockquote>
+<p>解析：<br>1：( )的运算符大于 &amp;&amp; ，优先运算( )<br>2：if判断<br>3：($a=5) 为 true, $a的值被重新赋值为 5<br>4：($b=6) 为 false, $b的值被重新赋值为 0<br>5：&amp;&amp; 运算不成立，不会进入if体内</p>
+<h5 id="3、左边为假，右边为真"><a href="#3、左边为假，右边为真" class="headerlink" title="3、左边为假，右边为真"></a>3、左边为假，右边为真</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$a = 3;</div><div class="line">$b = 4;</div><div class="line"></div><div class="line">if(($a=0) &amp;&amp; ($b=6))&#123;</div><div class="line">    $a+=1;</div><div class="line">    $b+=1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">echo $a;</div><div class="line">echo &apos;&lt;br&gt;&apos;;</div><div class="line">echo $b;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>结果：0 4</p>
+</blockquote>
+<p>解析：<br>1：($a=0) 为false，后面($b=6)不会被执行，更加不会进入if 体内</p>
+<h4 id="二、不加括号"><a href="#二、不加括号" class="headerlink" title="二、不加括号"></a>二、不加括号</h4><h5 id="1、两个条件都为真"><a href="#1、两个条件都为真" class="headerlink" title="1、两个条件都为真"></a>1、两个条件都为真</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$a = 3;</div><div class="line">$b = 4;</div><div class="line"></div><div class="line">if($a=5 &amp;&amp; $b=6)&#123;</div><div class="line">    $a+=1;</div><div class="line">    $b+=1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">echo $a;</div><div class="line">echo &apos;&lt;br&gt;&apos;;</div><div class="line">echo $b;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>结果： 2 7</p>
+</blockquote>
+<p>解析：<br>1：&amp;&amp; 优先级大于 赋值运算符优先级要高<br>2：得到：==$a=(5 &amp;&amp; $b=6)==<br>3：按第一点所说将会发生这种情况 ==$a=((5 &amp;&amp; $b)=6)==,这样的话就很不合理,所以php会提高$b=6运算优先级，最后得到：==$a=(5 &amp;&amp; (b=6))== 简化一下就是：==$a=(5 &amp;&amp; 6)==<br>4： ==(5 &amp;&amp; 6)== 为true, 将true赋值给$a ($a=true),注：1为 true， 0为 false<br>5: 进入if体内并，最后得到的结果为 2 7</p>
+<blockquote>
+<p>参考视频： <a href="http://www.yzmedu.com/learn/361" target="_blank" rel="external">http://www.yzmedu.com/learn/361</a>  （第8集28分钟左右）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$a = 3;</div><div class="line">$b = 4;</div><div class="line"></div><div class="line">if($a &amp;&amp; $b=6)&#123;</div><div class="line">    $a+=1;</div><div class="line">    $b+=1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">echo $a;</div><div class="line">echo &apos;&lt;br&gt;&apos;;</div><div class="line">echo $b;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>结果：4 7</p>
+</blockquote>
+<p>解析：<br>1：&amp;&amp; 优先级大于 赋值运算符优先级要高<br>2：得到：==($a &amp;&amp; $b)== ，简化后：==(3 &amp;&amp; 6)==<br>3: 进入if体内并，最后得到的结果为 4 7</p>
+<h5 id="2、左为假，右为真"><a href="#2、左为假，右为真" class="headerlink" title="2、左为假，右为真"></a>2、左为假，右为真</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$a = 3;</div><div class="line">$b = 4;</div><div class="line"></div><div class="line">if($a=0 &amp;&amp; $b=6)&#123;</div><div class="line">    $a+=1;</div><div class="line">    $b+=1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var_dump( $a);</div><div class="line">echo &apos;&lt;br&gt;&apos;;</div><div class="line">echo $b;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>结果：false 4</p>
+</blockquote>
+<h5 id="3、左为真，右为假"><a href="#3、左为真，右为假" class="headerlink" title="3、左为真，右为假"></a>3、左为真，右为假</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$a = 3;</div><div class="line">$b = 4;</div><div class="line"></div><div class="line">if($a &amp;&amp; $b=0)&#123;</div><div class="line">    $a+=1;</div><div class="line">    $b+=1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">echo$a;</div><div class="line">echo &apos;&lt;br&gt;&apos;;</div><div class="line">echo $b;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>结果：3 0</p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 面试 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> php </tag>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[阿里云 https 配置 (免费)]]></title>
+      <url>/2019/04/13/%E9%98%BF%E9%87%8C%E4%BA%91-https-%E9%85%8D%E7%BD%AE(%E5%85%8D%E8%B4%B9)/</url>
+      <content type="html"><![CDATA[<p>参考地址：<br>1：<a href="https://www.cnblogs.com/SemiconductorKING/p/9106971.html" target="_blank" rel="external">https://www.cnblogs.com/SemiconductorKING/p/9106971.html</a><br>2：<a href="https://blog.csdn.net/weixin_39920296/article/details/81084746（基本能解决问题）" target="_blank" rel="external">https://blog.csdn.net/weixin_39920296/article/details/81084746（基本能解决问题）</a><br>3：<a href="https://help.aliyun.com/document_detail/63736.html?spm=a2c4g.11186623.6.564.7d663e5flVnUVR" target="_blank" rel="external">HTTPS配置-推荐</a></p>
+<p>一、购买免费证书<br><a href="https://common-buy.aliyun.com/?spm=5176.2020520154.cas.1.738byojZyojZAq&amp;commodityCode=cas#/buy" target="_blank" rel="external">阿里云购买地址 </a>选择免费，购买完成会直接跳转至SSL证书管理页面，如下图点击申请</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> https </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[linux 下vim配置+插件安装]]></title>
+      <url>/2019/04/09/linux-%E4%B8%8Bvim%E9%85%8D%E7%BD%AE-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<p>vim插件大全：<br>1：<a href="https://zhuanlan.zhihu.com/p/24742679" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/24742679</a><br>2：<a href="https://vimawesome.com/" target="_blank" rel="external">https://vimawesome.com/</a></p>
+<p>Vim 插件的安装 ：<br>1：<a href="https://blog.csdn.net/freeking101/article/details/78539750" target="_blank" rel="external">https://blog.csdn.net/freeking101/article/details/78539750</a></p>
+<h3 id="一、Vundle-简述"><a href="#一、Vundle-简述" class="headerlink" title="一、Vundle 简述"></a>一、Vundle 简述</h3><p>一旦你用Vundle设置好了插件，就可以使用几个Vundle命令，用Vundle来安装、更新、搜索和清理闲置未用的插件。<br>搜索插件：如果你想从所提供的插件列表安装一个插件，搜索功能就很有用。:PluginSearch <text-list> 在搜索过程中，你可以在交互式分屏上安装、清理、研究或重新装入同一列表。安装插件不会自动装入你的插件。想自动装入插件，将插件添加到你的.vimrc文件</text-list></p>
+<h3 id="二、Vundle常用命令"><a href="#二、Vundle常用命令" class="headerlink" title="二、Vundle常用命令"></a>二、Vundle常用命令</h3><p>注：先打开一个vim，在配合这些命令使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">:PlugInstall                         		命令会安装在你的.vimrc文件中列出来的所有插件。</div><div class="line">:PluginInstall &lt;plugin-name&gt;        	还可以只安装某一个特定的插件，只要传递其名称。</div><div class="line">:PluginInstall &lt;vmark.vim--Visual-Bookmarking&gt;</div><div class="line"></div><div class="line">常用的命令（新）</div><div class="line"> :PluginList      		 - 列出所有已配置的插件</div><div class="line"> :PluginInstall     	 - 安装插件,追加 `!` 用以更新或使用 :PluginUpdate</div><div class="line"> :PluginSearch foo	 - 搜索 foo ; 追加 `!` 清除本地缓存</div><div class="line"> :PluginClean    	 - 清除未使用插件,需要确认; 追加 `!` 自动批准移除未使用插件</div></pre></td></tr></table></figure></p>
+<p>常用的命令（旧）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">:BundleList            	 -列举列表(也就是.vimrc)中配置的所有插件  </div><div class="line">:BundleInstall            -安装列表中的全部插件  </div><div class="line">:BundleInstall!         	 -更新列表中的全部插件  </div><div class="line">:BundleSearch foo    -查找foo插件  </div><div class="line">:BundleSearch! foo   -刷新foo插件缓存  </div><div class="line">:BundleClean            -清除列表中没有的插件  </div><div class="line">:BundleClean!           -清除列表中没有的插件</div></pre></td></tr></table></figure></p>
+<h3 id="三、安装插件"><a href="#三、安装插件" class="headerlink" title="三、安装插件"></a>三、安装插件</h3><h4 id="参考网址："><a href="#参考网址：" class="headerlink" title="参考网址："></a>参考网址：</h4><blockquote>
+<p>1：<a href="https://blog.csdn.net/freeking101/article/details/78539750" target="_blank" rel="external">https://blog.csdn.net/freeking101/article/details/78539750</a><br>2：<a href="https://blog.csdn.net/u011417820/article/details/79648429" target="_blank" rel="external">https://blog.csdn.net/u011417820/article/details/79648429</a><br>3：<a href="https://blog.csdn.net/qq_28485501/article/details/85767132" target="_blank" rel="external">https://blog.csdn.net/qq_28485501/article/details/85767132</a></p>
+</blockquote>
+<h4 id="安装插件有2种方式"><a href="#安装插件有2种方式" class="headerlink" title="安装插件有2种方式"></a>安装插件有2种方式</h4><p>1：打开vim，运行:BundleInstall | :PlugInstall<br>2：shell中直接运行vim +BundleInstall +qall</p>
+<p>.vimrc”文件配置好后，打开vim，在命令模式输入插件安装命令 :PluginInstall命令，vim就会自动安装“.vimrc”中配置的所有插件，直到vim底部出现“Done”安装完成。</p>
+<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><p>1：配置 .vimrc 文件</p>
+<p>2：打开vim在命令行模式中运行：:PluginInstall</p>
+<p>3：下载完成之后，需要手动编译后才能使用</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> vim </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[linux git升级安装以及报错问题解决方法]]></title>
+      <url>/2019/04/09/linux-git%E5%8D%87%E7%BA%A7%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+      <content type="html"><![CDATA[<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>一、先安装编译时依赖的包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker</div></pre></td></tr></table></figure></p>
+<p>二、卸载旧版本</p>
+<blockquote>
+<p>yum remove git</p>
+</blockquote>
+<p>三、下载与安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">1 cd ~</div><div class="line">2 wget https://www.kernel.org/pub/software/scm/git/git-2.15.1.tar.xz</div><div class="line">3 tar -vxf git-2.15.1.tar.xz</div><div class="line">4 cd git-2.15.1</div><div class="line">5 make prefix=/usr/local/git all</div><div class="line">6 make prefix=/usr/local/git install</div><div class="line">7 echo &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/profile</div><div class="line">8 source /etc/profile</div><div class="line">9 git --version</div></pre></td></tr></table></figure></p>
+<h3 id="make-编译的时候出现了错误"><a href="#make-编译的时候出现了错误" class="headerlink" title="make 编译的时候出现了错误"></a>make 编译的时候出现了错误</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> LINK git-credential-store</div><div class="line">libgit.a(utf8.o): In function `reencode_string_iconv&apos;:</div><div class="line">/usr/src/git-2.8.3/utf8.c:463: undefined reference to `libiconv&apos;</div><div class="line">libgit.a(utf8.o): In function `reencode_string_len&apos;:</div><div class="line">/usr/src/git-2.8.3/utf8.c:502: undefined reference to `libiconv_open&apos;</div><div class="line">/usr/src/git-2.8.3/utf8.c:521: undefined reference to `libiconv_close&apos;</div><div class="line">/usr/src/git-2.8.3/utf8.c:515: undefined reference to `libiconv_open&apos;</div><div class="line">collect2: ld returned 1 exit status</div><div class="line">make: *** [git-credential-store] Error 1</div></pre></td></tr></table></figure>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>一、安装libiconv<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1 wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.14.tar.gz</div><div class="line">2 tar -zxvf libiconv-1.14.tar.gz</div><div class="line">3 cd libiconv-1.14</div><div class="line">4 ./configure --prefix=/usr/local/libiconv  &amp;&amp;  make  &amp;&amp; make install</div></pre></td></tr></table></figure></p>
+<p>二、创建一个软链接到/usr/lib<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ln -s /usr/local/lib/libiconv.so /usr/lib</div><div class="line">ln -s /usr/local/lib/libiconv.so.2 /usr/lib</div></pre></td></tr></table></figure></p>
+<p>三、回到git目录继续编译<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1 cd ~/git-2.15.1(我放在家目录)</div><div class="line">2 make configure</div><div class="line">3 ./configure --prefix=/usr/local --with-iconv=/usr/local/libiconv</div><div class="line">4 make</div><div class="line">5 make install</div></pre></td></tr></table></figure></p>
+<p>四、编辑环境变量配置（给到所有用户）: vim /etc/profile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1 export PATH=$PATH:/usr/local/git/bin  或者 echo &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/bashrc (需要退出 root 用户再操作. 否则就只有root用户内部才生效了)  </div><div class="line">2 刷新配置：source /etc/bashrc</div></pre></td></tr></table></figure></p>
+<p>五、查看GIT版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git --version  </div><div class="line">git version 2.15.1</div></pre></td></tr></table></figure></p>
+<h3 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h3><blockquote>
+<p>1:<a href="https://www.jianshu.com/p/512d25c9df10" target="_blank" rel="external">https://www.jianshu.com/p/512d25c9df10</a><br>2:<a href="https://blog.csdn.net/liuchenxia8/article/details/79652847" target="_blank" rel="external">https://blog.csdn.net/liuchenxia8/article/details/79652847</a><br>3:<a href="https://blog.csdn.net/qq_28903377/article/details/86148687" target="_blank" rel="external">https://blog.csdn.net/qq_28903377/article/details/86148687</a><br>4:<a href="https://blog.csdn.net/daojibruce/article/details/75315401" target="_blank" rel="external">https://blog.csdn.net/daojibruce/article/details/75315401</a><br>5:<a href="https://www.cnblogs.com/gxldan/p/4069956.html" target="_blank" rel="external">https://www.cnblogs.com/gxldan/p/4069956.html</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> git </tag>
+            
+            <tag> linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[vsCode - PHP IntelliSense插件函数跳转]]></title>
       <url>/2019/03/25/vsCode-PHP-IntelliSense%E6%8F%92%E4%BB%B6%E5%87%BD%E6%95%B0%E8%B7%B3%E8%BD%AC/</url>
       <content type="html"><![CDATA[<h3 id="一、安装-PHP-IntelliSense插件"><a href="#一、安装-PHP-IntelliSense插件" class="headerlink" title="一、安装  PHP IntelliSense插件"></a>一、安装  PHP IntelliSense插件</h3><p> 打开vsode 编辑器，ctrl+shift+x 打开扩展商店，搜索 PHP IntelliSense 安装插件<br> <img src="http://imgcdn.95dcw.com/PHP%20IntelliSense-1.png" alt="image"></p>
