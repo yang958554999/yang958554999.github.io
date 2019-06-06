@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title><![CDATA[解决lnmp Nginx 502 Bad Gateway错误可能原因及解决方法]]></title>
+      <url>/2019/06/06/%E8%A7%A3%E5%86%B3lnmp-Nginx-502-Bad-Gateway%E9%94%99%E8%AF%AF%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+      <content type="html"><![CDATA[<p>参考连接地址：<a href="https://lnmp.org/faq/lnmp-Nginx-502-Bad-Gateway.html" target="_blank" rel="external">https://lnmp.org/faq/lnmp-Nginx-502-Bad-Gateway.html</a></p>
+<p>运行环境：<br>我在linux服务器安装了 LNMP 一键安装包，<br>LNMP环境为:<br>Nginx 1.14.1<br>Mysql 5.6<br>PHP    7.0.30</p>
+<h3 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h3><p>我要在Nginx配置一个TP5项目，<br>配置好后出现了如下图这问题<br><img src="http://imgcdn.95dcw.com/lnmpNginx-01.png" alt="image"></p>
+<h3 id="二、解决方法"><a href="#二、解决方法" class="headerlink" title="二、解决方法"></a>二、解决方法</h3><p>参考链接：<a href="https://lnmp.org/faq/lnmp-Nginx-502-Bad-Gateway.html" target="_blank" rel="external">https://lnmp.org/faq/lnmp-Nginx-502-Bad-Gateway.html</a><br>我是出现在第九种原因上：</p>
+<p>  &emsp;&emsp;有时候也可能是自己修改过下面2处的配置，导致nginx配置文件里的设置和php-fpm上的设置不一样也会502。<br>  &emsp;&emsp;如果使用unix套接字，修改<font color="ff0000">/usr/local/php/etc/php-fpm.conf</font> 里设置，php 5.2为 /tmp/php-cgi.sock php 5.3及以上版本为listen = /tmp/php-cgi.sock 。<br>  &emsp;&emsp;<font color="ff0000">同时/usr/local/nginx/conf/nginx.conf</font> 及其 <font color="ff0000">/usr/local/nginx/conf/vhost/ </font> 下面的虚拟主机配置里的fastcgi_pass unix:/tmp/php-cgi.sock;不一致就必定502。<br>  &emsp;&emsp;有时候unix套接字模式下可能会502，可以尝试改成tcp/ip的方式 php 5.2下/tmp/php-cgi.sock替换为 127.0.0.1:9000<br>  &emsp;&emsp;php 5.3及以上版本listen = /tmp/php-cgi.sock替换为listen = 127.0.0.1:9000，nginx配置文件及虚拟主机配置文件里fastcgi_pass unix:/tmp/php-cgi.sock;替换为fastcgi_pass 127.0.0.1:9000; 之后重启试试。</p>
+<p>还需要补充的就是不要按网上找到的教程随便修改配置，网上找到的可能会路径不一样，也可能会导致502或有相关的错误产生。</p>
+<p>1:修改php-fpm.conf (/usr/local/php/etc/php-fpm.cnf)<br><img src="http://imgcdn.95dcw.com/lnmpNginx-02.png" alt="image"><br><img src="http://imgcdn.95dcw.com/lnmpNginx-03.png" alt="image"><br><img src="http://imgcdn.95dcw.com/lnmpNginx-04.png" alt="image"></p>
+<h3 id="三、出现新问题"><a href="#三、出现新问题" class="headerlink" title="三、出现新问题"></a>三、出现新问题</h3><p>Access denied. 拒绝访问<br><img src="http://imgcdn.95dcw.com/lnmpNginx-05.png" alt="image"></p>
+<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><p>参考连接：<a href="https://blog.csdn.net/weixin_36392359/article/details/80203767" target="_blank" rel="external">https://blog.csdn.net/weixin_36392359/article/details/80203767</a></p>
+<p>1.改<font color="ff0000">php.ini</font>文件。将cgi.fix_pathinfo的值改成1<br>/usr/local/php/etc/php.ini<br>重启 lnmp (lnmp restart)</p>
+<p><img src="http://imgcdn.95dcw.com/lnmpNginx-06.png" alt="image"></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[运算符 && 的面试及分析]]></title>
       <url>/2019/04/13/%E8%BF%90%E7%AE%97%E7%AC%A6-%E7%9A%84%E9%9D%A2%E8%AF%95%E5%8F%8A%E5%88%86%E6%9E%90/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -68,7 +87,25 @@
       <title><![CDATA[阿里云 https 配置 (免费)]]></title>
       <url>/2019/04/13/%E9%98%BF%E9%87%8C%E4%BA%91-https-%E9%85%8D%E7%BD%AE(%E5%85%8D%E8%B4%B9)/</url>
       <content type="html"><![CDATA[<p>参考地址：<br>1：<a href="https://www.cnblogs.com/SemiconductorKING/p/9106971.html" target="_blank" rel="external">https://www.cnblogs.com/SemiconductorKING/p/9106971.html</a><br>2：<a href="https://blog.csdn.net/weixin_39920296/article/details/81084746（基本能解决问题）" target="_blank" rel="external">https://blog.csdn.net/weixin_39920296/article/details/81084746（基本能解决问题）</a><br>3：<a href="https://help.aliyun.com/document_detail/63736.html?spm=a2c4g.11186623.6.564.7d663e5flVnUVR" target="_blank" rel="external">HTTPS配置-推荐</a></p>
-<p>一、购买免费证书<br><a href="https://common-buy.aliyun.com/?spm=5176.2020520154.cas.1.738byojZyojZAq&amp;commodityCode=cas#/buy" target="_blank" rel="external">阿里云购买地址 </a>选择免费，购买完成会直接跳转至SSL证书管理页面，如下图点击申请</p>
+<h2 id="一、购买免费证书"><a href="#一、购买免费证书" class="headerlink" title="一、购买免费证书"></a>一、购买免费证书</h2><p><a href="https://common-buy.aliyun.com/?spm=5176.2020520154.cas.1.738byojZyojZAq&amp;commodityCode=cas#/buy" target="_blank" rel="external">阿里云购买地址 </a>选择免费，购买完成会直接跳转至SSL证书管理页面，如下图点击申请</p>
+<p><img src="http://imgcdn.95dcw.com/https-01.png" alt="image" title="https-图1"><br>验证审核，大概等个十分钟左右吧~</p>
+<p><img src="http://imgcdn.95dcw.com/https-02.png" alt="image" title="https-图2"></p>
+<h2 id="二、阿里CDN-配置"><a href="#二、阿里CDN-配置" class="headerlink" title="二、阿里CDN 配置"></a>二、阿里CDN 配置</h2><p><img src="http://imgcdn.95dcw.com/https-03.png" alt="image" title="https-图3"><br>添加域名<br><img src="http://imgcdn.95dcw.com/https-04.png" alt="image" title="https-图4"><br><img src="http://imgcdn.95dcw.com/https-05.png" alt="image" title="https-图5"><br>这显示配置中，是当时在申请证书，验证审核的过程中，会自动将信息添加至域名解析中（注：也可以自己添加，查看图片1）<br><img src="http://imgcdn.95dcw.com/https-06.png" alt="image" title="https-图6"><br><img src="http://imgcdn.95dcw.com/https-07.png" alt="image" title="https-图7"></p>
+<p>下载证书及配置https：<br><!-- ![image](http://imgcdn.95dcw.com/https-08.png "https-图8") --><br><img src="http://imgcdn.95dcw.com/https-09.png" alt="image" title="https-图8"><br><img src="http://imgcdn.95dcw.com/https-10.png" alt="image"><br><img src="http://imgcdn.95dcw.com/https-11.png" alt="image"><br><img src="http://imgcdn.95dcw.com/https-12.png" alt="image"><br>配置完成<br><img src="http://imgcdn.95dcw.com/https-13.png" alt="image"></p>
+<h2 id="三、Nginx-服务器配置https"><a href="#三、Nginx-服务器配置https" class="headerlink" title="三、Nginx 服务器配置https"></a>三、Nginx 服务器配置https</h2><p><a href="https://help.aliyun.com/document_detail/98728.html?spm=a2c4g.11186623.2.12.3e4255b3RJA4pv#concept-n45-21x-yfb" target="_blank" rel="external">点击我 </a> 查看nginx https 设置参考，以下是我自己做的，祥情如下步骤：</p>
+<p>1：在 nginx/conf 目录下创建cert目录，并将下载的证书文件拷贝至该目录下<br><img src="http://imgcdn.95dcw.com/https-14.png" alt="image"></p>
+<p>2：配置<br><img src="http://imgcdn.95dcw.com/https-15.png" alt="image"></p>
+<p>3：配置好后　nginx -s reload 重新加载配置</p>
+<p>4：效果<br><img src="http://imgcdn.95dcw.com/https-16.png" alt="image"></p>
+<h2 id="四、我踩过的坑"><a href="#四、我踩过的坑" class="headerlink" title="四、我踩过的坑"></a>四、我踩过的坑</h2><blockquote>
+<p>1： 443 端口没开，导致出现问题</p>
+</blockquote>
+<p>解决问题：  </p>
+<blockquote>
+<p>进入ecs-&gt;实例-&gt;管理-&gt;安全组-&gt;配置规则-&gt;添加安全组规则<br>加入443端口 重启  刷新  OK   </p>
+</blockquote>
+<p><img src="http://imgcdn.95dcw.com/https-17.png" alt="image"></p>
+<h2 id="五、后续待解决问题"><a href="#五、后续待解决问题" class="headerlink" title="五、后续待解决问题"></a>五、后续待解决问题</h2><p>1：95dcw.com 无法跳转至 https,域名无法解析</p>
 ]]></content>
       
         <categories>
